@@ -1,6 +1,5 @@
 import sqlite3 as sql
 from Crypto.Hash import MD4
-from typing import  Union
 import os.path
 
 DIR = os.path.dirname(os.path.abspath(__file__))
