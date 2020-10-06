@@ -12,7 +12,7 @@ class AdminWindow(QtWidgets.QMainWindow):
         super(AdminWindow, self).__init__(parent)
         uic.loadUi('components/admin_menu.ui', self)
         self.username_label: QLabel = self.findChild(QLabel, 'lbl_username')
-        user = person.ususername
+        user = person.username
         self.username_label.setText('Bem vindo administrador {user}'.format(user=user))
         self.update_btn = self.findChild(QtWidgets.QPushButton, 'btn_atualizar')
         #   self.update_btn.clicked.connect(self.add_update_layout())

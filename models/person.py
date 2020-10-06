@@ -7,6 +7,6 @@ class Person():
    nome: Optional[str] = ''
    sobrenome: Optional[str] = ''
    tipo: Optional[str] = ''
-   ususername: Optional[str] = ''
+   username: Optional[str] = ''
    email: Optional[str] = ''
    senha: Optional[str] = ''
