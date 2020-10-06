@@ -3,7 +3,7 @@ from Crypto.Hash import MD4
 import os.path
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-DB_NAME = os.path.join(DIR, 'testedb.db')
+DB_NAME = os.path.join(DIR, 'aps_database.db')
 
 def md4Hash(text: str):
     h = MD4.new()
