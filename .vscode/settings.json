@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:APS_Python}/databases/aps_database.db",
+            "name": "database_aps"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

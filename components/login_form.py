@@ -1,8 +1,9 @@
 from databases.database_controller import connect_database
 from models.person import Person
 from components.admin_window import AdminWindow
+from components.user_menu import UserMenu
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtWidgets import QLineEdit
+from PyQt5.QtWidgets import QLineEdit, QLabel
 
 
 con = connect_database()
@@ -19,7 +20,8 @@ class LoginForm(QtWidgets.QDialog):
         self.usuario: QLineEdit = self.findChild(QLineEdit, "username_input")
         self.senha: QLineEdit = self.findChild(QLineEdit, "password_input")
         self.email: QLineEdit = self.findChild(QLineEdit, "email_input")
-        self.login_label: QtWidgets.QLabel = self.findChild(QtWidgets.QLabel, 'login_label')
+        self.login_label: QLabel= self.findChild(QLabel, 'login_label')
+        self.login_label.setText('')
 
     def verifica_usuario(self):
       usuario = self.usuario.text()
@@ -42,7 +44,11 @@ class LoginForm(QtWidgets.QDialog):
                self.close()
                admin_screen = AdminWindow(user_data, self)
                admin_screen.show()
-
+            
+            elif tipo == 'USUARIO':
+                self.close()
+                self.user_menu = UserMenu()
+                self.user_menu.show()
 
          else:
             print('Não encontrado')
