@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>319</width>
-    <height>146</height>
+    <width>793</width>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,6 +50,46 @@
        </layout>
       </item>
      </layout>
+    </item>
+    <item row="1" column="0">
+     <widget class="QTableWidget" name="admin_table">
+      <column>
+       <property name="text">
+        <string>ID</string>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nome de usuário</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nome</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Sobrenome</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>E-mail</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tipo</string>
+       </property>
+      </column>
+     </widget>
     </item>
    </layout>
   </widget>
