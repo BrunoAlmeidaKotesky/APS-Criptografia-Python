@@ -30,10 +30,13 @@ con = connect_database()
 user_data = Person()
 
 class RegisterForm(QMainWindow):
-    def __init__(self):
+    def __init__(self, person: Person = None):
         super(RegisterForm, self).__init__()
         uic.loadUi('components/sign_up.ui', self)
         self.show()
+        self.user_type:str = None
+        if person is not None:
+            self.user_type = person.tipo
         self.user_name:QLineEdit = self.findChild(QLineEdit, 'lineEdit')
         self.nome:QLineEdit = self.findChild(QLineEdit, 'lineEdit_2')
         self.sobrenome:QLineEdit = self.findChild(QLineEdit, 'lineEdit_3')
@@ -58,7 +61,9 @@ class RegisterForm(QMainWindow):
             if result:
                 self.label.setText('Já existe um usuário com este e-mail cadastrado!')
             else:
-                cur.execute("INSERT INTO usuarios VALUES (?, ?, ?, md4(?), ?, ?, ?)", [None, nome_usuario, sobrenome_usuario, senha, username, email, 'USUARIO'])
+                insert_cur = con.cursor()
+                tipo = self.user_type if self.user_type is not None else 'USUARIO'
+                insert_cur.execute("INSERT INTO usuarios VALUES (?, ?, ?, md4(?), ?, ?, ?)", [None, nome_usuario, sobrenome_usuario, senha, username, email, tipo])
                 con.commit()
                 self.label.setText('Usuário criado com sucesso!')
                 self.user_name.setText('')

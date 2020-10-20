@@ -39,6 +39,7 @@ class LoginForm(QtWidgets.QDialog):
             print(id, name, name, lastname, password, username, email)
             self.login_label.setVisible(False)
             user_data.username = username
+            user_data.tipo = tipo
             print(user_data)
             if tipo == 'ADMIN':
                self.close()
